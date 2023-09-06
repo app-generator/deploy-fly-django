@@ -27,14 +27,16 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 if not SECRET_KEY:
     SECRET_KEY = ''.join(random.choice( string.ascii_lowercase  ) for i in range( 32 ))
 
-# Render Deployment Code
-DEBUG = 'RENDER' not in os.environ
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
-ALLOWED_HOSTS = []
+APP_DOMAIN = os.environ.get('APP_DOMAIN', '*.fly.dev')
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:    
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+# HOSTs List
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', APP_DOMAIN]
+
+# Add here your deployment HOSTS
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085', 'http://127.0.0.1:8000', 'http://127.0.0.1:5085', f'http://{APP_DOMAIN}', f'https://{APP_DOMAIN}']
 
 # Application definition
 
