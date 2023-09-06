@@ -8,9 +8,10 @@ primary_region = "otp"
 console_command = "/code/manage.py shell"
 
 [build]
+  build_command = "echo '*** EXEC BUILD CMD ***'"
 
 [deploy]
-  release_command = "./build.sh"
+  release_command = "echo '*** EXEC DEPLOY CMD ***'"
 
 [env]
   PORT = "8000"
