@@ -30,13 +30,13 @@ if not SECRET_KEY:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-APP_DOMAIN = os.environ.get('APP_DOMAIN', '*.fly.dev')
+APP_DOMAIN = os.environ.get('APP_DOMAIN', '.fly.dev')
 
 # HOSTs List
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', APP_DOMAIN]
+ALLOWED_HOSTS = ['*']
 
 # Add here your deployment HOSTS
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085', 'http://127.0.0.1:8000', 'http://127.0.0.1:5085', f'http://{APP_DOMAIN}', f'https://{APP_DOMAIN}']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085', 'http://127.0.0.1:8000', 'http://127.0.0.1:5085', f'http://*.fly.dev', f'https://*.fly.dev']
 
 # Application definition
 
