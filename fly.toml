@@ -8,9 +8,10 @@ primary_region = "otp"
 console_command = "/code/manage.py shell"
 
 [build]
+  build_command = 'python manage.py makemigrations'
 
 [deploy]
-  release_command = "python manage.py makemigrations ; python manage.py migrate"
+  release_command = "python manage.py migrate"
 
 [env]
   PORT = "8000"
